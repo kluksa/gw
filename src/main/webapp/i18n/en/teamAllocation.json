@@ -1,0 +1,28 @@
+{
+  "gwApp": {
+    "teamAllocation": {
+      "home": {
+        "title": "Team Allocations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Team Allocation",
+        "createOrEditLabel": "Create or edit a Team Allocation",
+        "notFound": "No Team Allocations found"
+      },
+      "created": "A new Team Allocation is created with identifier {{ param }}",
+      "updated": "A Team Allocation is updated with identifier {{ param }}",
+      "deleted": "A Team Allocation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Team Allocation {{ id }}?"
+      },
+      "detail": {
+        "title": "Team Allocation"
+      },
+      "id": "ID",
+      "start": "Start",
+      "end": "End",
+      "note": "Note",
+      "member": "Member",
+      "team": "Team"
+    }
+  }
+}
