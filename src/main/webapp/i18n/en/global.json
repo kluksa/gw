@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "employee": "Employee",
+        "payroll": "Payroll",
+        "bonus": "Bonus",
+        "benefit": "Benefit",
+        "notes": "Notes",
+        "teams": "Teams",
+        "teamAllocation": "Team Allocation",
+        "projects": "Projects",
+        "projectAllocation": "Project Allocation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

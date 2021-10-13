@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="payroll">
+      <h2 data-cy="payrollDetailsHeading"><span jhiTranslate="gwApp.payroll.detail.title">Payroll</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ payroll.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.payroll.effectiveDate">Effective Date</span></dt>
+        <dd>
+          <span>{{ payroll.effectiveDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.payroll.amountTotal">Amount Total</span></dt>
+        <dd>
+          <span>{{ payroll.amountTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.payroll.amountNet">Amount Net</span></dt>
+        <dd>
+          <span>{{ payroll.amountNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.payroll.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="payroll.employee">
+            <a [routerLink]="['/employee', payroll.employee?.id, 'view']">{{ payroll.employee?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payroll', payroll.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
