@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="projectAllocation">
+      <h2 data-cy="projectAllocationDetailsHeading"><span jhiTranslate="gwApp.projectAllocation.detail.title">Project Allocation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ projectAllocation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.projectAllocation.start">Start</span></dt>
+        <dd>
+          <span>{{ projectAllocation.start | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.projectAllocation.end">End</span></dt>
+        <dd>
+          <span>{{ projectAllocation.end | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.projectAllocation.note">Note</span></dt>
+        <dd>
+          <span>{{ projectAllocation.note }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.projectAllocation.project">Project</span></dt>
+        <dd>
+          <div *ngIf="projectAllocation.project">
+            <a [routerLink]="['/projects', projectAllocation.project?.id, 'view']">{{ projectAllocation.project?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gwApp.projectAllocation.member">Member</span></dt>
+        <dd>
+          <div *ngIf="projectAllocation.member">
+            <a [routerLink]="['/employee', projectAllocation.member?.id, 'view']">{{ projectAllocation.member?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/project-allocation', projectAllocation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

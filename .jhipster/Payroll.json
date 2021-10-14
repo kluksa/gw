@@ -1,0 +1,36 @@
+{
+  "name": "Payroll",
+  "fields": [
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "amountTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountNet",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "payroll",
+      "relationshipName": "employee"
+    }
+  ],
+  "entityTableName": "payroll",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "databaseType": "sql",
+  "changelogDate": "20211014060505"
+}

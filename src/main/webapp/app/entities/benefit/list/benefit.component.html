@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="BenefitHeading">
+    <span jhiTranslate="gwApp.benefit.home.title">Benefits</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gwApp.benefit.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-benefit"
+        [routerLink]="['/benefit/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gwApp.benefit.home.createLabel"> Create a new Benefit </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="benefits?.length === 0">
+    <span jhiTranslate="gwApp.benefit.home.notFound">No benefits found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="benefits && benefits.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="gwApp.benefit.type">Type</span></th>
+          <th scope="col"><span jhiTranslate="gwApp.benefit.effectiveDate">Effective Date</span></th>
+          <th scope="col"><span jhiTranslate="gwApp.benefit.value">Value</span></th>
+          <th scope="col"><span jhiTranslate="gwApp.benefit.endDate">End Date</span></th>
+          <th scope="col"><span jhiTranslate="gwApp.benefit.employee">Employee</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let benefit of benefits; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/benefit', benefit.id, 'view']">{{ benefit.id }}</a>
+          </td>
+          <td>{{ benefit.type }}</td>
+          <td>{{ benefit.effectiveDate | formatMediumDate }}</td>
+          <td>{{ benefit.value }}</td>
+          <td>{{ benefit.endDate | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="benefit.employee">
+              <a [routerLink]="['/employee', benefit.employee?.id, 'view']">{{ benefit.employee?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/benefit', benefit.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/benefit', benefit.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(benefit)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

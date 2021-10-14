@@ -1,0 +1,28 @@
+{
+  "gwApp": {
+    "projects": {
+      "home": {
+        "title": "Projects",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Projects",
+        "createOrEditLabel": "Create or edit a Projects",
+        "notFound": "No Projects found"
+      },
+      "created": "A new Projects is created with identifier {{ param }}",
+      "updated": "A Projects is updated with identifier {{ param }}",
+      "deleted": "A Projects is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Projects {{ id }}?"
+      },
+      "detail": {
+        "title": "Projects"
+      },
+      "id": "ID",
+      "start": "Start",
+      "end": "End",
+      "name": "Name",
+      "note": "Note",
+      "manager": "Manager"
+    }
+  }
+}

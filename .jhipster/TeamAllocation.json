@@ -1,0 +1,42 @@
+{
+  "name": "TeamAllocation",
+  "fields": [
+    {
+      "fieldName": "start",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "end",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "teamAllocation",
+      "relationshipName": "member"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "teams",
+      "otherEntityRelationshipName": "teamAllocation",
+      "relationshipName": "team"
+    }
+  ],
+  "entityTableName": "team_allocation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "databaseType": "sql",
+  "changelogDate": "20211014060510"
+}
