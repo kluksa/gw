@@ -1,0 +1,28 @@
+{
+  "gwApp": {
+    "projectAllocation": {
+      "home": {
+        "title": "Project Allocations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Project Allocation",
+        "createOrEditLabel": "Create or edit a Project Allocation",
+        "notFound": "No Project Allocations found"
+      },
+      "created": "A new Project Allocation is created with identifier {{ param }}",
+      "updated": "A Project Allocation is updated with identifier {{ param }}",
+      "deleted": "A Project Allocation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Project Allocation {{ id }}?"
+      },
+      "detail": {
+        "title": "Project Allocation"
+      },
+      "id": "ID",
+      "start": "Start",
+      "end": "End",
+      "note": "Note",
+      "project": "Project",
+      "member": "Member"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="notes">
+      <h2 data-cy="notesDetailsHeading"><span jhiTranslate="gwApp.notes.detail.title">Notes</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ notes.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.notes.timestamp">Timestamp</span></dt>
+        <dd>
+          <span>{{ notes.timestamp | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.notes.note">Note</span></dt>
+        <dd>
+          <span>{{ notes.note }}</span>
+        </dd>
+        <dt><span jhiTranslate="gwApp.notes.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="notes.employee">
+            <a [routerLink]="['/employee', notes.employee?.id, 'view']">{{ notes.employee?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/notes', notes.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

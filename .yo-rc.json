@@ -44,7 +44,9 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "reactive": false,
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Employee", "Payroll", "Bonus", "Benefit", "Notes", "Teams", "TeamAllocation", "Projects", "ProjectAllocation"],
+    "lastLiquibaseTimestamp": 1634191512000
   },
   "git-provider": "GitHub",
   "git-company": "kluksa",

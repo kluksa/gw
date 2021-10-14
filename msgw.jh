@@ -1,0 +1,70 @@
+
+entity Employee {
+    firstName String,
+    lastName String,
+    dateOfBirth LocalDate,
+}
+
+entity Payroll {
+	effectiveDate LocalDate,
+    amountTotal BigDecimal,
+    amountNet BigDecimal,
+}
+
+entity Bonus {
+    effectiveDate LocalDate,
+    amount BigDecimal,
+    note TextBlob,
+}
+
+entity Benefit {
+	type String,
+    effectiveDate LocalDate,
+    value BigDecimal,
+    endDate LocalDate
+}
+
+entity Notes {
+	timestamp Instant,
+    note TextBlob,
+}
+
+entity Teams {
+	start LocalDate,
+    end LocalDate,
+}
+
+entity TeamAllocation{
+	start LocalDate,
+    end LocalDate,
+    note String,
+}
+entity Projects{
+	start LocalDate,
+    end LocalDate,
+    name String,
+    note String,
+    
+}
+
+entity ProjectAllocation {
+	start LocalDate,
+    end LocalDate,
+    note String,
+}
+
+relationship ManyToOne{
+	Teams{leader} to Employee,	
+	TeamAllocation{member} to Employee,
+    TeamAllocation{team} to Teams,
+	ProjectAllocation{project} to Projects,
+	ProjectAllocation{member} to Employee,
+	Projects{manager} to Employee,
+	Benefit{employee} to Employee,
+    Bonus{employee} to Employee,
+    Payroll{employee} to Employee,
+    Notes{employee} to Employee,
+}
+
+paginate Employee with infinite-scroll
+//paginate Benefits with pagination
